@@ -13,7 +13,6 @@ namespace TicketGenerator
             {
                 htmlTemplate = htmlTemplate.Replace(key, ticketData[key]);
             }
-            
             return htmlTemplate;
         }
     }

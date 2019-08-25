@@ -24,7 +24,7 @@ namespace AccesoDatos
         public int IdArea { get; set; }
         public string Nombre { get; set; }
         public string Contenido { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public System.DateTime Fecha { get; set; }
     
         public virtual Area Area { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

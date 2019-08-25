@@ -20,7 +20,7 @@ namespace ITextSharp
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 //by now this do nothing, it might log the error
                 return false;

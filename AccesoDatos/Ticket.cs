@@ -22,7 +22,7 @@ namespace AccesoDatos
     
         public long Id { get; set; }
         public int IdTemplate { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public System.DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
     
         public virtual Template Template { get; set; }

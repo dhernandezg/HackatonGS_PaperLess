@@ -132,6 +132,19 @@ namespace AccesoDatos
             DataAccesContext.ValoresTickets.Remove(paramValor);
             return DataAccesContext.SaveChanges();
         }
+        private Dictionary<string, string> GetDictionaryFromValores(IQueryable<ValoresTicket> Valores)
+        {
+            var result = new Dictionary<string, string>();
+            foreach (var i in Valores) 
+            {
+                result.Add(i.Clave, i.Valor);
+            }
+            return result;
+        }
+        public Dictionary<string, string> GetDictionaryFromIdTicket(long idTicket)
+        {
+            return GetDictionaryFromValores(DataAccesContext.ValoresTickets.Where(v=> v.IdTicket ==idTicket));
+        }
     }
 
 }

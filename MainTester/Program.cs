@@ -10,7 +10,7 @@ namespace MainTester
 
     class Program
     {
-        const string testPdfFile = @"C:\Windows\Temp\sodi.pdf";
+        const string testPdfFile = @"C:\Windows\Temp\";
 
         static void Main(string[] args)
         {
@@ -19,8 +19,8 @@ namespace MainTester
             //    //Transferencias de Dinero
             //    var Areas = DataAccess.UpdateArea(new Area() {Id=1,Nombre= "Transferencias de Dinero" });
             //}
-            var Sender = new AdministradorDeEnvios() { Tipo= CanalTransferencia.Enums.EnumTipoEnvio.Email | CanalTransferencia.Enums.EnumTipoEnvio.SMS | CanalTransferencia.Enums.EnumTipoEnvio.WhatsApp};
-            Sender.Enviar("*** Banco Azteca ***", "\nUsted ha recibido un nuevo recibo digital: https://www.hackaton.com/equipo_localhost_Paperless", "9612325736", "jbennignos@hotmail.com");
+            //var Sender = new AdministradorDeEnvios() { Tipo= CanalTransferencia.Enums.EnumTipoEnvio.Email | CanalTransferencia.Enums.EnumTipoEnvio.SMS | CanalTransferencia.Enums.EnumTipoEnvio.WhatsApp};
+            //Sender.Enviar("*** Banco Azteca ***", "\nUsted ha recibido un nuevo recibo digital: https://www.hackaton.com/equipo_localhost_Paperless", "9612325736", "jbennignos@hotmail.com");
             if (ITextWrapper.CreatePDF(GetTemplate(), testPdfFile))
             {
                 Console.WriteLine(string.Format("File {0} was generated successfully.", testPdfFile));

@@ -17,6 +17,7 @@ namespace AccesoDatos
         public string Clave { get; set; }
         public string Valor { get; set; }
         public long IdTicket { get; set; }
+        public long Id { get; set; }
     
         public virtual Ticket Ticket { get; set; }
     }

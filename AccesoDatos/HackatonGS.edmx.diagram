@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="01b2f0fb987c4c9cbbd0197d18e8a7d0" Name="Diagram1">
+      <Diagram DiagramId="da618f224c774b4b82f4bdeac4f5d6e4" Name="Diagram1">
         <EntityTypeShape EntityType="HackatonGSModel.Area" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HackatonGSModel.Template" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="HackatonGSModel.Ticket" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HackatonGSModel.ValoresTicket" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HackatonGSModel.ValoresTicket" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="HackatonGSModel.FK__Template__Fecha__286302EC" ManuallyRouted="false" />
         <AssociationConnector Association="HackatonGSModel.FK__Tickets__IdTempl__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="HackatonGSModel.FK__ValoresTi__IdTic__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="HackatonGSModel.FK__ValoresTicke__Id__300424B4" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
