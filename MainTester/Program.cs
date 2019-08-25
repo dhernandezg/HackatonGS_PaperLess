@@ -8,12 +8,11 @@ namespace MainTester
 
     class Program
     {
+        const string testPdfFile = @"C:\Windows\Temp\sodi.pdf";
+
         static void Main(string[] args)
         {
-            string originHtml = "<html><body><p><b>Referencia: Banco Azteca, S.A.</b></p><p>@@Referencia@@</p><br/><p><b>ENVIOS DE DINERO</b></p><p>@@Negocio@@</p><p><b>--PAGO--</b></p><br/><br/><p><b>CLAVE DE ENVIO:</b></p><p>@@ClaveCobro@@</p><p><b>BENEFICIARIO:</b></p><p>@@Beneficiario@@</p><p><b>REMITENTE:</b></p><p>@@Remitente@@</p><p><b>ORIGEN:</b></p><p>@@Origen@@</p><p><b>DESTINO:</b></p><p>@@Destino@@</p><p><b>MONTO:</b></p><p>$@@MontoPago@@ M.N.</p></body></html>";
-            string testPdfFile = @"C:\Windows\Temp\sodi.pdf";
-
-            if (ITextWrapper.CreatePDF(originHtml, testPdfFile))
+            if (ITextWrapper.CreatePDF(GetTemplate(), testPdfFile))
             {
                 Console.WriteLine(string.Format("File {0} was generated successfully.", testPdfFile));
             }
@@ -27,16 +26,23 @@ namespace MainTester
             TestConverter();
         }
 
-        private static string TestConverter()
+        private static void TestConverter()
         {
-            return TemplateConverter.FillTemplate(GetTemplate(), GetTicketValues());
+            string htmlTicket = TemplateConverter.FillTemplate(GetTemplate(), GetTicketValues());
+            ITextWrapper.CreatePDF(htmlTicket, testPdfFile);
         }
 
+        /// <summary>
+        /// Gets template base for printing (should receive it from database)
+        /// </summary>
         private static string GetTemplate()
         {
             return "<html><body><p><b>Referencia: Banco Azteca, S.A.</b></p><p>@@Referencia@@</p><br/><p><b>ENVIOS DE DINERO</b></p><p>@@Negocio@@</p><p><b>--PAGO--</b></p><br/><br/><p><b>CLAVE DE ENVIO:</b></p><p>@@ClaveCobro@@</p><p><b>BENEFICIARIO:</b></p><p>@@Beneficiario@@</p><p><b>REMITENTE:</b></p><p>@@Remitente@@</p><p><b>ORIGEN:</b></p><p>@@Origen@@</p><p><b>DESTINO:</b></p><p>@@Destino@@</p><p><b>MONTO:</b></p><p>$@@MontoPago@@ M.N.</p></body></html>";
         }
 
+        /// <summary>
+        /// Gets ticket "tags" (identifier strings in template to be replaced) and values (final values in template)
+        /// </summary>
         private static Dictionary<string, string> GetTicketValues()
         {
             Dictionary<string, string> ticketValues = new Dictionary<string, string>();

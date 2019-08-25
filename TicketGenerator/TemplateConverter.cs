@@ -8,7 +8,13 @@ namespace TicketGenerator
     {
         public static string FillTemplate(string htmlTemplate, Dictionary<string, string> ticketData)
         {
-            return null;
+            //TODO: improving performance using a different string replacing approach
+            foreach (string key in ticketData.Keys)
+            {
+                htmlTemplate = htmlTemplate.Replace(key, ticketData[key]);
+            }
+            
+            return htmlTemplate;
         }
     }
 }
