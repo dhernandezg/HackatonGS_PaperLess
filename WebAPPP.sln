@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPPP", "WebAPPP\WebAPPP.csproj", "{DB538BC2-C826-4658-865D-C61D2DD4CE4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{0B5CF22B-208C-4A12-A60D-DFB9BF228C36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB538BC2-C826-4658-865D-C61D2DD4CE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB538BC2-C826-4658-865D-C61D2DD4CE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB538BC2-C826-4658-865D-C61D2DD4CE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB538BC2-C826-4658-865D-C61D2DD4CE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5CF22B-208C-4A12-A60D-DFB9BF228C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5CF22B-208C-4A12-A60D-DFB9BF228C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5CF22B-208C-4A12-A60D-DFB9BF228C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5CF22B-208C-4A12-A60D-DFB9BF228C36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87F9D949-1F45-4819-B318-AA666B92CC56}
+	EndGlobalSection
+EndGlobal
