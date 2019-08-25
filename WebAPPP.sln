@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketGenerator", "TicketGe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainTester", "MainTester\MainTester.csproj", "{48E5BB7A-4DB4-4C3C-9DBC-5D4B7CF1477A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceso Datos", "Acceso Datos\Acceso Datos.csproj", "{E0999D32-4D3E-4CA3-B14D-48C8BC121D9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{48E5BB7A-4DB4-4C3C-9DBC-5D4B7CF1477A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48E5BB7A-4DB4-4C3C-9DBC-5D4B7CF1477A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48E5BB7A-4DB4-4C3C-9DBC-5D4B7CF1477A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0999D32-4D3E-4CA3-B14D-48C8BC121D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0999D32-4D3E-4CA3-B14D-48C8BC121D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0999D32-4D3E-4CA3-B14D-48C8BC121D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0999D32-4D3E-4CA3-B14D-48C8BC121D9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

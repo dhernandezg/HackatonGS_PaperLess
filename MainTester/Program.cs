@@ -3,6 +3,7 @@
 namespace MainTester
 {
     using System.Collections.Generic;
+    using AccesoDatos;
     using ITextSharp;
     using TicketGenerator;
 
@@ -12,6 +13,11 @@ namespace MainTester
 
         static void Main(string[] args)
         {
+            using (var DataAccess = new SQLAccess())
+            {
+                //Transferencias de Dinero
+                var Areas = DataAccess.UpdateArea(new Area() {Id=1,Nombre= "Transferencias de Dinero" });
+            }
             if (ITextWrapper.CreatePDF(GetTemplate(), testPdfFile))
             {
                 Console.WriteLine(string.Format("File {0} was generated successfully.", testPdfFile));
