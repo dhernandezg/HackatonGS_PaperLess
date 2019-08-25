@@ -3,6 +3,7 @@ using PaperLessBussinesLogic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Http;
 
 namespace PaperLessAPI.Controllers
@@ -19,7 +20,7 @@ namespace PaperLessAPI.Controllers
         {
             if (request == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-            if (Modelo.CrearTicket(request) > 0)
+            if (Modelo.CrearTicket(request, Modelo.FixURI(HttpContext.Current.Request.Url.AbsoluteUri)) > 0)
             { 
                 
                 return Ok();

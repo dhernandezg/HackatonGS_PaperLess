@@ -14,7 +14,7 @@ namespace PaperLessBussinesLogic
     public class PaperLessModel
     {
         private SQLAccess DAO = new SQLAccess();
-        public int CrearTicket(RequestCreateTicket request)
+        public int CrearTicket(RequestCreateTicket request, string currentDomain = "")
         {
             int RowsAfected = 0;
             var ticket = new Ticket()
@@ -33,8 +33,10 @@ namespace PaperLessBussinesLogic
                            IdTicket = ticket.Id
                        };
                    }).ToArray() : new ValoresTicket[0]);
+            if (!string.IsNullOrEmpty(currentDomain))
+                SendURL(request, string.Format("{0}/GetTicket/{1}", currentDomain, ticket.Id));
 
-            
+
             return RowsAfected;
         }
 
@@ -53,18 +55,29 @@ namespace PaperLessBussinesLogic
             }
             return new byte[0];
         }
-        private string AsuntoE = "***Banco Azteca***\n";
-        private string MensajeE = "";
+        private string AsuntoE = "Banco Azteca";
+
         private AdministradorDeEnvios EnvioElectronico = new AdministradorDeEnvios();
-        private void SendURL(RequestCreateTicket request)
+        private void SendURL(RequestCreateTicket request, string url)
         {
+            string MensajeE = string.Format("Ha recibido un nuevo recibo Electronico de su operacion acceda a la siguiente Ruta {0}", url);
             EnvioElectronico.Tipo = request.EnviarEmail ? EnumTipoEnvio.Email : EnumTipoEnvio.None;
             if (request.EnviarSMS)
                 EnvioElectronico.Tipo |= EnumTipoEnvio.SMS;
             if (request.EnviarWhatsApp)
                 EnvioElectronico.Tipo |= EnumTipoEnvio.WhatsApp;
-            if(EnvioElectronico.Tipo>0)
+            if (EnvioElectronico.Tipo > 0)
                 EnvioElectronico.Enviar(AsuntoE, MensajeE, request.Celular, request.Email);
+        }
+        public string FixURI(string absoluteUri)
+        {
+            if (!string.IsNullOrEmpty(absoluteUri) && !string.IsNullOrWhiteSpace(absoluteUri))
+            {
+                var urisplit = absoluteUri.Split('/').ToList();
+                urisplit.RemoveAt(urisplit.Count - 1);
+                return string.Join("/", urisplit.ToArray());
+            }
+            return string.Empty;
         }
     }
 }

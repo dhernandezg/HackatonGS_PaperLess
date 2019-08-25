@@ -51,9 +51,9 @@ namespace CanalTransferencia.Model
         private string SendWhats(string Asunto, string Mensaje, string Remitente, string Destinatario) 
         {
             var message = MessageResource.Create(
-               from: new PhoneNumber(string.Format("whatsapp:{0}",Remitente)),
+               from: new PhoneNumber(string.Format("whatsapp:{0}", RemitenteWhatsApp)),
                to: new PhoneNumber(string.Format("whatsapp:{0}{1}{2}",PrefijoMexico,PrefijoWhats,Destinatario)),
-               body: string.Format("{0}, {1}", Asunto, Mensaje)
+               body: string.Format("{0}, {1}", Asunto, Mensaje.Replace("localhost","BloqueadoPorWhats.gs.mx"))
            );
             return message.Sid;
         }
