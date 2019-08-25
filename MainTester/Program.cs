@@ -4,6 +4,7 @@ namespace MainTester
 {
     using System.Collections.Generic;
     using AccesoDatos;
+    using CanalTransferencia.Model;
     using ITextSharp;
     using TicketGenerator;
 
@@ -13,11 +14,13 @@ namespace MainTester
 
         static void Main(string[] args)
         {
-            using (var DataAccess = new SQLAccess())
-            {
-                //Transferencias de Dinero
-                var Areas = DataAccess.UpdateArea(new Area() {Id=1,Nombre= "Transferencias de Dinero" });
-            }
+            //using (var DataAccess = new SQLAccess())
+            //{
+            //    //Transferencias de Dinero
+            //    var Areas = DataAccess.UpdateArea(new Area() {Id=1,Nombre= "Transferencias de Dinero" });
+            //}
+            var Sender = new AdministradorDeEnvios() { Tipo= CanalTransferencia.Enums.EnumTipoEnvio.Email | CanalTransferencia.Enums.EnumTipoEnvio.SMS | CanalTransferencia.Enums.EnumTipoEnvio.WhatsApp};
+            Sender.Enviar("*** Banco Azteca ***", "\nUsted ha recibido un nuevo recibo digital: https://www.hackaton.com/equipo_localhost_Paperless", "9612325736", "jbennignos@hotmail.com");
             if (ITextWrapper.CreatePDF(GetTemplate(), testPdfFile))
             {
                 Console.WriteLine(string.Format("File {0} was generated successfully.", testPdfFile));

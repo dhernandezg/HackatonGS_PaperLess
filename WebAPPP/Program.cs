@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using AccesoDatos;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,7 +16,6 @@ namespace WebAPPP
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
-            var Areas = new SQLDataContext().Areas.Any();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
